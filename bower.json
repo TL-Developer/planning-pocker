@@ -1,0 +1,28 @@
+{
+  "name": "planning-pocker",
+  "description": "Game Planning Pocker",
+  "main": "index.js",
+  "authors": [
+    "Tiago Lima"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "planning",
+    "pocker",
+    "scrum"
+  ],
+  "homepage": "https://github.com/TL-Developer/planning-pocker",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendors",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.1",
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1"
+  }
+}

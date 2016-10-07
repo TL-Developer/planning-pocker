@@ -1,0 +1,30 @@
+{
+  "name": "planning-pocker",
+  "version": "1.0.0",
+  "description": "Game Planning Pocker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TL-Developer/planning-pocker.git"
+  },
+  "keywords": [
+    "planning",
+    "pocker",
+    "scrum"
+  ],
+  "author": "Tiago Lima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TL-Developer/planning-pocker/issues"
+  },
+  "homepage": "https://github.com/TL-Developer/planning-pocker#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "consign": "^0.1.2",
+    "express": "^4.14.0",
+    "socket.io": "^1.5.0"
+  }
+}
