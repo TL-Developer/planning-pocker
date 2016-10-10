@@ -5,6 +5,12 @@ angular.module('planning-pocker', ['ui.router','ngMaterial']).config(function($s
         url: '/',
         templateUrl: 'partials/home.html',
         controller: 'HomeController'
+      })
+
+      .state('login', {
+        url: '/login',
+        templateUrl: 'partials/login.html',
+        controller: 'LoginController'
       });
 
     $urlRouterProvider.otherwise('/');

@@ -1,19 +1,10 @@
+var users_connected = 0;
 
-module.exports = function(app) {
-
-  app.route('/login')
-    .post((req, res) => {
-
-      var user = req.body.user;
-      app.get('io').on('connection', function(socket){
-        console.log(user + ' entrou no pocker');
-
-        app.get('io').emit('novoUsuario', user);
-
-        socket.on('disconnect', function(){
-          console.log(user + ' disconectou do pocker');
-        });
-      });
-    });
-
+module.exports = function(socket) {
+  socket.on('send:user', function(data){
+    users_connected++;
+    console.log(data.user + ' entrou no infrapocker, total de infrapockers: ' + users_connected);
+    socket.emit('send:user', data.user);
+    // socket.broadcast.emit('novo:usuario', data.user);
+  });
 };
