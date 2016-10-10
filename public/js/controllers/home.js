@@ -1,10 +1,8 @@
 angular.module('planning-pocker').controller('HomeController', ['$scope','$http', function($scope, $http) {
 
-
-
-  $scope.login = function(){
+  $scope.login = function(user){
     var usuario = {
-      'user':'tiago'
+      'user': user
     };
     $http.post('/login', usuario).then(function(){
       console.log('test');
