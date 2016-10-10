@@ -1,7 +1,5 @@
 angular.module('planning-pocker').controller('LoginController', ['$scope','$http','$state', function($scope, $http, $state) {
 
-  var socket = io();
-
   $scope.usuario = {
     name: ''
   };
@@ -18,7 +16,6 @@ angular.module('planning-pocker').controller('LoginController', ['$scope','$http
   }
 
   socket.on('send:user', function(user){
-    console.log(user + ' conectado ');
     $scope.usuario = {
       name: user
     };

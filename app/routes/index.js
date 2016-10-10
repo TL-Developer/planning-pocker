@@ -5,6 +5,10 @@ module.exports = function(socket) {
     users_connected++;
     console.log(data.user + ' entrou no infrapocker, total de infrapockers: ' + users_connected);
     socket.emit('send:user', data.user);
-    // socket.broadcast.emit('novo:usuario', data.user);
+  });
+
+  socket.on('send:card', function(card, name){
+    socket.emit('send:card', card, name);
+    socket.broadcast.emit('send:card', card, name);
   });
 };

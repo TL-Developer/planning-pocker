@@ -1,3 +1,14 @@
-<h1>Olá {{usuario.name}}</h1>
+<h3>Bem-vindo ao infrapocker {{usuario.name}}, bom planning</h3>
+
+<h1>MESA:</h1>
+<div ng-repeat="item in mesa">
+  <h4 ng-show="item.card">{{item.name}} - {{item.card}}</h4>
+</div>
+
+<form ng-submit="send_card(this)">
+  <input type="text" ng-model="card">
+  <button type="submit">Enviar</button>
+</form>
+
 
 <h2><a ui-sref="login()">Logout</a></h2>
