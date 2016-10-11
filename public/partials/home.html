@@ -1,14 +1,22 @@
-<h3>Bem-vindo ao infrapocker {{usuario.name}}, bom planning</h3>
+<h3>Bem-vindo {{usuario.name}}, bom planning</h3>
 
 <h1>MESA:</h1>
 <div ng-repeat="item in mesa">
   <h4 ng-show="item.card">{{item.name}} - {{item.card}}</h4>
 </div>
 
-<form ng-submit="send_card(this)">
-  <input type="text" ng-model="card">
-  <button type="submit">Enviar</button>
-</form>
+<div class="cards">
+  <ul>
+    <li ng-repeat="card in cards">
+      <!-- <div ng-click="send_card(card)">{{card}}</div> -->
+      <input type="checkbox" ng-model="cardSelected" value="{{card}}">{{card}}
+    </li>
+  </ul>
+</div>
 
+{{cardSelected}}
+
+<button ng-click="send_card()">Jogar</button>
 
 <h2><a ui-sref="login()">Logout</a></h2>
+<h2 ng-click="limpar()">Limpar</h2>

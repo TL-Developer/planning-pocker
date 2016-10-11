@@ -13,5 +13,5 @@ angular.module('planning-pocker', ['ui.router','ngMaterial']).config(function($s
         controller: 'LoginController'
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/login');
 });
