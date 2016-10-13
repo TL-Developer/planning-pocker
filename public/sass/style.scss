@@ -1,0 +1,63 @@
+#mesa {
+  margin-bottom: 550px;
+
+  .mesa {
+    border: 1px solid #ccc;
+
+    .card {
+      position: relative;
+
+      .resposta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+
+        .nome, .horas, .texto-horas {
+          color: #000;
+          font-size: 1em;
+          width: 100%;
+          text-align: center;
+          margin: 0;
+        }
+
+        .horas {
+          font-size: 4em;
+        }
+      }
+
+      .img-card {
+        width: 200px;
+        height: 200px;
+        border: 3px solid orange;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+a {
+  color: inherit;
+}
+
+.text-right {
+  text-align: right;
+  margin-right: 20px;
+}
+
+.cards-fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  .btn-jogar {
+    float: left;
+  }
+
+  .self-cards {
+    height: 150px;
+    overflow: hidden;
+  }
+}
+
+

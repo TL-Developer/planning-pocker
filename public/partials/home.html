@@ -1,22 +1,62 @@
-<h3>Bem-vindo {{usuario.name}}, bom planning</h3>
+ <md-toolbar>
+  <p class="text-right">Bem-vindo {{usuario.name}}, bom planning  |  <a ui-sref="login()">SAIR</a></p>
+</md-toolbar>
 
-<h1>MESA:</h1>
-<div ng-repeat="item in mesa">
-  <h4 ng-show="item.card">{{item.name}} - {{item.card}}</h4>
+<div id="mesa">
+  <md-content class="md-padding" layout-xs="column" layout="row">
+    <h3>MESA:</h3>
+  </md-content>
+
+  <md-content class="md-padding mesa" layout-xs="column" layout="row">
+    <div class="card" ng-repeat="item in mesa" flex-xs flex-gt-xs="4" layout="column">
+      <md-card>
+        <div class="resposta">
+          <p class="nome">{{item.name | uppercase}}</p>
+          <p class="horas">{{item.card}}</p>
+          <p class="texto-horas">Horas</p>
+        </div>
+        <div class="img-card"></div>
+      </md-card>
+    </div>
+  </md-content>
+
 </div>
 
-<div class="cards">
-  <ul>
-    <li ng-repeat="card in cards">
-      <!-- <div ng-click="send_card(card)">{{card}}</div> -->
-      <input type="checkbox" ng-model="cardSelected" value="{{card}}">{{card}}
-    </li>
-  </ul>
+<div class="cards-fixed">
+
+  <div layout="row">
+    <div flex="95">
+      <md-content class="md-padding" layout-xs="column" layout="row">
+        <div class="self-cards" ng-repeat="card in cards" flex-xs flex-gt-xs="6" layout="column" style="overflow: hidden;">
+          <md-card>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">{{card}}</span>
+                <span class="md-subhead">h</span>
+              </md-card-title-text>
+              <md-card-title-media>
+                <div class="md-media-lg card-media"></div>
+              </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-checkbox class="red"><p style="text-indent: -999px;">{{card}}</p></md-checkbox>
+            </md-card-actions>
+          </md-card>
+        </div>
+      </md-content>
+    </div>
+
+
+    <div flex="20">
+      <md-button type="submit" class="md-fab btn-block md-primary btn-jogar" ng-click="send_card()">Jogar</md-button>
+      <md-button type="submit" class="md-fab md-default btn-limpar" ng-click="limpar()">Limpar</md-button>
+    </div>
+  </div>
+
+
+
+
 </div>
 
-{{cardSelected}}
 
-<button ng-click="send_card()">Jogar</button>
 
-<h2><a ui-sref="login()">Logout</a></h2>
-<h2 ng-click="limpar()">Limpar</h2>
