@@ -36,6 +36,28 @@
   }
 }
 
+.logo {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+
+  img {
+    width: 300px;
+  }
+}
+
+.login {
+  margin: 10% auto;
+
+  md-input-container {
+    width: 97%;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
 a {
   color: inherit;
 }
@@ -43,12 +65,23 @@ a {
 .text-right {
   text-align: right;
   margin-right: 20px;
+  float: right;
+}
+
+.text-left {
+  float: left;
+  text-align: left;
+  margin-left: 20px;
 }
 
 .cards-fixed {
   position: fixed;
   bottom: 0;
   width: 100%;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background: white;
 
   .btn-jogar {
     float: left;
@@ -61,3 +94,31 @@ a {
 }
 
 
+.chat {
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  background: #ccc;
+  height: 500px;
+  overflow-y: scroll;
+
+  .panel {
+    background: #6c7aca;
+  }
+
+  p {
+    font-size: 0.8em;
+    width: 100%;
+  }
+}
+
+
+
+.self-cards {
+  md-card {
+    height: 140px;
+
+    md-card-title {
+      height: 40px;
+    }
+  }
+}

@@ -31,8 +31,18 @@ angular.module('planning-pocker').controller('HomeController', ['$scope','$http'
           card: card
         });
       });
-
     });
+
+    socket.on('send:card:upset', function(card, name){
+      $scope.$apply(function() {
+        $scope.mesa.push({
+          name: name,
+          card: '#'
+        });
+      });
+    });
+
+
   }else {
     $state.go('login');
   }

@@ -1,62 +1,86 @@
- <md-toolbar>
-  <p class="text-right">Bem-vindo {{usuario.name}}, bom planning  |  <a ui-sref="login()">SAIR</a></p>
-</md-toolbar>
+<div layout="row">
+    <div flex="80">
 
-<div id="mesa">
-  <md-content class="md-padding" layout-xs="column" layout="row">
-    <h3>MESA:</h3>
-  </md-content>
-
-  <md-content class="md-padding mesa" layout-xs="column" layout="row">
-    <div class="card" ng-repeat="item in mesa" flex-xs flex-gt-xs="4" layout="column">
-      <md-card>
-        <div class="resposta">
-          <p class="nome">{{item.name | uppercase}}</p>
-          <p class="horas">{{item.card}}</p>
-          <p class="texto-horas">Horas</p>
+      <md-toolbar>
+        <div class="panel">
+          <h5 class="text-left">INFRA POKER!</h5>
+          <h5 class="text-right">Bem-vindo {{usuario.name}} | <a ui-sref="login()">sair</a></h5>
         </div>
-        <div class="img-card"></div>
-      </md-card>
-    </div>
-  </md-content>
+      </md-toolbar>
 
-</div>
+      <div id="mesa">
+        <md-content class="md-padding" layout-xs="column" layout="row">
+          <h3>MESA:</h3>
+        </md-content>
 
-<div class="cards-fixed">
+        <md-content class="md-padding mesa" layout-xs="column" layout="row">
+          <div class="card" ng-repeat="item in mesa" flex-xs flex-gt-xs="4" layout="column">
+            <md-card class="cardd">
+              <div class="resposta">
+                <p class="nome">{{item.name | uppercase}}</p>
+                <p class="horas">{{item.card}}</p>
+                <p class="texto-horas">Horas</p>
+              </div>
+              <div class="img-card"></div>
+            </md-card>
+          </div>
+        </md-content>
 
-  <div layout="row">
-    <div flex="95">
-      <md-content class="md-padding" layout-xs="column" layout="row">
-        <div class="self-cards" ng-repeat="card in cards" flex-xs flex-gt-xs="6" layout="column" style="overflow: hidden;">
-          <md-card>
-            <md-card-title>
-              <md-card-title-text>
-                <span class="md-headline">{{card}}</span>
-                <span class="md-subhead">h</span>
-              </md-card-title-text>
-              <md-card-title-media>
-                <div class="md-media-lg card-media"></div>
-              </md-card-title-media>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-              <md-checkbox class="red"><p style="text-indent: -999px;">{{card}}</p></md-checkbox>
-            </md-card-actions>
-          </md-card>
+      </div>
+
+      <div class="cards-fixed">
+
+        <div layout="row">
+          <div flex="95">
+            <md-content class="md-padding" layout-xs="column" layout="row">
+              <div class="self-cards" ng-repeat="card in cards" flex-xs flex-gt-xs="6" layout="column" style="overflow: hidden;">
+                <md-card>
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span class="md-headline">{{card}}</span>
+                      <span class="md-subhead">h</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                      <div class="md-media-lg card-media"></div>
+                    </md-card-title-media>
+                  </md-card-title>
+                  <md-card-actions layout="row" layout-align="end center">
+                    <md-checkbox class="red"><p style="text-indent: -999px;">{{card}}</p></md-checkbox>
+                  </md-card-actions>
+                </md-card>
+              </div>
+            </md-content>
+          </div>
+
+
+          <div flex="20">
+            <md-button type="submit" class="md-fab btn-block md-primary btn-jogar" ng-click="send_card()">Jogar</md-button>
+            <md-button type="submit" class="md-fab md-default btn-limpar" ng-click="limpar()">Limpar</md-button>
+          </div>
         </div>
-      </md-content>
-    </div>
+      </div>
 
-
-    <div flex="20">
-      <md-button type="submit" class="md-fab btn-block md-primary btn-jogar" ng-click="send_card()">Jogar</md-button>
-      <md-button type="submit" class="md-fab md-default btn-limpar" ng-click="limpar()">Limpar</md-button>
-    </div>
   </div>
 
+  <div flex="20" class="chat">
+    <md-toolbar>
+      <div class="panel">
+        <h5 class="text-left">CHAT</h5>
+      </div>
+    </md-toolbar>
+    <md-list-item class="noright">
+      <p>Tiago diz: <br>
+      mensagem
+      </p>
+      <md-divider></md-divider>
+    </md-list-item>
 
-
+    <md-list-item class="noright">
+      <p>Tiago diz: <br>
+      mensagem
+      </p>
+      <md-divider></md-divider>
+    </md-list-item>
+  </div>
 
 </div>
-
-
-

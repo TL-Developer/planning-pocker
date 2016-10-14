@@ -1,12 +1,30 @@
-<h1>Entrar no InfraPocker</h1>
+<div layout="row">
+    <div flex="40" class="login">
 
-<form ng-submit="login(this)">
-  <md-content>
-      <md-input-container>
-        <label>Username</label>
-        <input ng-model="name" type="text">
-      </md-input-container>
-  </md-content>
+      <div class="logo">
+        <img src="img/logo_infra.png" alt="">
+      </div>
 
-  <md-button type="submit" class="md-raised md-primary">Entrar</md-button>
-</form>
+      <md-toolbar>
+        <div class="panel">
+          <h5 class="text-center">Entrar no InfraPoker</h5>
+        </div>
+      </md-toolbar>
+
+      <form ng-submit="login(this)">
+        <md-content>
+            <md-input-container>
+              <label>Username</label>
+              <input ng-model="name" type="text">
+            </md-input-container>
+        </md-content>
+
+        <section layout="column" layout-align="center center">
+          <div layout="row" style="width: 100%">
+          <md-button type="submit" class="md-raised md-primary md-block" flex>Entrar</md-button>
+          </div>
+        </section>
+
+      </form>
+  </div>
+</div>

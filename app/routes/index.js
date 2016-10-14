@@ -9,6 +9,6 @@ module.exports = function(socket) {
 
   socket.on('send:card', function(card, name){
     socket.emit('send:card', card, name);
-    socket.broadcast.emit('send:card', card, name);
+    socket.broadcast.emit('send:card:upset', card, name);
   });
 };
