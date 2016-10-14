@@ -9,6 +9,15 @@
       </md-toolbar>
 
       <div id="mesa">
+        <div ng-show="users">
+          <md-content class="md-padding" layout-xs="column" layout="row">
+            <h5>Online:</h5>
+            <md-chips class="fullWidth">
+              <md-chip ng-repeat="user in users">{{user}}</md-chip>
+            </md-chips>
+          </md-content>
+        </div>
+
         <md-content class="md-padding" layout-xs="column" layout="row">
           <h3>MESA:</h3>
         </md-content>

@@ -2,10 +2,13 @@ angular.module('planning-pocker').controller('HomeController', ['$scope','$http'
 
   $scope.mesa = [];
   $scope.cards = ['1','2','3','4','5','6','7','8','9','10','20','100','oo'];
+  $scope.users = [];
 
   if(localStorage.getItem('usuario_pocker')){
 
     $scope.usuario = JSON.parse(localStorage.getItem('usuario_pocker'));
+
+    // $scope.users.push('$scope.usuario.name');
 
     $scope.send_card = function(card) {
       var cards_checked = document.querySelectorAll('.md-checked');
@@ -42,7 +45,6 @@ angular.module('planning-pocker').controller('HomeController', ['$scope','$http'
       });
     });
 
-
   }else {
     $state.go('login');
   }
@@ -52,13 +54,18 @@ angular.module('planning-pocker').controller('HomeController', ['$scope','$http'
     clean_checks();
   };
 
-
   // Limpa checkeds
-  function clean_checks() {
+  function clean_checks(){
     var cards_checked = document.querySelectorAll('.md-checked');
     for(var i = 0; i < cards_checked.length; i++){
       cards_checked[i].classList.remove('md-checked');
     }
   };
+
+  socket.on('send:users', function(user){
+    $scope.$apply(function() {
+      $scope.users.push(user);
+    });
+  });
 
 }]);

@@ -4,16 +4,14 @@ angular.module('planning-pocker').controller('LoginController', ['$scope','$http
     name: ''
   };
 
-  localStorage.removeItem('usuario_pocker')
+  localStorage.removeItem('usuario_pocker');
 
   $scope.login = function(form){
-
     var usuario = {
       'user': form.name
     };
-
     socket.emit('send:user', usuario);
-  }
+  };
 
   socket.on('send:user', function(user){
     $scope.usuario = {
