@@ -1,14 +1,16 @@
 angular.module('planning-pocker').controller('HomeController', ['$scope','$http', '$state', function($scope, $http, $state) {
 
   $scope.mesa = [];
+  $scope.mesaAdmin = [];
   $scope.cards = ['1','2','3','4','5','6','7','8','9','10','20','100','oo'];
   $scope.users = [];
 
   if(localStorage.getItem('usuario_pocker')){
 
     $scope.usuario = JSON.parse(localStorage.getItem('usuario_pocker'));
-
-    // $scope.users.push('$scope.usuario.name');
+    if($scope.usuario.name.search(/alex/i) === 0){
+      $scope.isAdmin = 'admin';
+    }
 
     $scope.send_card = function(card) {
       var cards_checked = document.querySelectorAll('.md-checked');
@@ -33,6 +35,10 @@ angular.module('planning-pocker').controller('HomeController', ['$scope','$http'
           name: name,
           card: card
         });
+        $scope.mesaAdmin.push({
+          name: name,
+          card: card
+        });
       });
     });
 
@@ -42,6 +48,31 @@ angular.module('planning-pocker').controller('HomeController', ['$scope','$http'
           name: name,
           card: '#'
         });
+        $scope.mesaAdmin.push({
+          name: name,
+          card: card
+        });
+      });
+    });
+
+    $scope.viraCartas = function(){
+      socket.emit('upset:card');
+    };
+
+    socket.on('upset:card', function(){
+      $scope.$apply(function() {
+        $scope.mesa = $scope.mesaAdmin;
+      });
+    });
+
+    $scope.limparMesaGeral = function(){
+      socket.emit('limpar:mesa:geral');
+    };
+
+    socket.on('limpar:mesa:geral', function(){
+      $scope.$apply(function() {
+        $scope.mesa = [];
+        $scope.mesaAdmin = [];
       });
     });
 

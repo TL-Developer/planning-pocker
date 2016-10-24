@@ -1,6 +1,5 @@
 <div layout="row">
     <div flex="80">
-
       <md-toolbar>
         <div class="panel">
           <h5 class="text-left">INFRA POKER!</h5>
@@ -9,6 +8,11 @@
       </md-toolbar>
 
       <div id="mesa">
+        <div ng-show="isAdmin">
+          <md-button type="submit" class="md-raised btn-block md-primary" ng-click="viraCartas()">Virar cartas</md-button>
+          <md-button type="submit" class="md-raised btn-block md-warn" ng-click="limparMesaGeral()">Limpar mesa</md-button>
+        </div>
+
         <div ng-show="users">
           <md-content class="md-padding" layout-xs="column" layout="row">
             <h5>Online:</h5>

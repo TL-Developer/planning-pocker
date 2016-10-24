@@ -13,4 +13,14 @@ module.exports = function(socket) {
     socket.emit('send:card', card, name);
     socket.broadcast.emit('send:card:upset', card, name);
   });
+
+  socket.on('upset:card', function(){
+    socket.emit('upset:card');
+    socket.broadcast.emit('upset:card');
+  });
+
+  socket.on('limpar:mesa:geral', function(){
+    socket.emit('limpar:mesa:geral');
+    socket.broadcast.emit('limpar:mesa:geral');
+  });
 };
