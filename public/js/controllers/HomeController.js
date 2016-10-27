@@ -4,6 +4,7 @@ angular.module('planning-pocker').controller('HomeController', ['$scope','$http'
   $scope.mesaAdmin = [];
   $scope.cards = ['1','2','3','4','5','6','7','8','9','10','20','100','oo'];
   $scope.users = [];
+  $scope.isMesaAdmin = 'asdfasdf';
 
   if(localStorage.getItem('usuario_pocker')){
 
@@ -39,6 +40,15 @@ angular.module('planning-pocker').controller('HomeController', ['$scope','$http'
           name: name,
           card: card
         });
+        setTimeout(function(){
+          document.querySelectorAll('.mesaGamers')[0].style.display = 'flex';
+          console.log(document.querySelectorAll('.mesaGamers')[0].lastElementChild);
+          document.querySelectorAll('.mesaGamers')[0].lastElementChild.style.display = 'block';
+          document.querySelectorAll('.mesaGamers')[0].lastElementChild.classList.add('flipInY','animated');
+        }, 100);
+        setTimeout(function(){
+          document.querySelectorAll('.mesaGamers')[0].children[0].classList.remove('flipInY','animated');
+        }, 1000);
       });
     });
 
@@ -61,7 +71,25 @@ angular.module('planning-pocker').controller('HomeController', ['$scope','$http'
 
     socket.on('upset:card', function(){
       $scope.$apply(function() {
-        $scope.mesa = $scope.mesaAdmin;
+        var cards_mesa_gamers = document.querySelectorAll('.mesaGamers')[0].children;
+        for(var i = 0; i < cards_mesa_gamers.length; i++){
+          cards_mesa_gamers[i].classList.add('flipOutY','animated');
+        }
+        setTimeout(function(){
+          document.querySelectorAll('.mesaGamers')[0].style.display = 'none';
+
+          for(var j = 0; j < cards_mesa_gamers.length; j++){
+            cards_mesa_gamers[j].classList.remove('flipOutY','animated');
+          }
+
+
+          var cards_mesa_admin = document.querySelectorAll('.mesaAdmin')[0].children;
+          document.querySelectorAll('.mesaAdmin')[0].style.display = 'flex';
+          for(var h = 0; h < cards_mesa_gamers.length; h++){
+            cards_mesa_admin[h].classList.add('flipInY','animated');
+          }
+          $scope.mesa = [];
+        },1000);
       });
     });
 
@@ -71,8 +99,16 @@ angular.module('planning-pocker').controller('HomeController', ['$scope','$http'
 
     socket.on('limpar:mesa:geral', function(){
       $scope.$apply(function() {
-        $scope.mesa = [];
-        $scope.mesaAdmin = [];
+        document.querySelectorAll('.mesaAdmin')[0].children[0].classList.add('flipOutY','animated');
+
+        setTimeout(function(){
+          document.querySelectorAll('.mesaAdmin')[0].children[0].classList.remove('flipOutY','animated');
+          $scope.mesa = [];
+          $scope.mesaAdmin = [];
+          // document.querySelectorAll('.mesaGamers')[0].style.display = 'flex';
+          document.querySelectorAll('.mesaAdmin')[0].style.display = 'none';
+          document.querySelectorAll('.mesaGamers')[0].style.display = 'none';
+        }, 1000);
       });
     });
 
@@ -82,6 +118,7 @@ angular.module('planning-pocker').controller('HomeController', ['$scope','$http'
 
   $scope.limpar = function(){
     $scope.mesa = [];
+    $scope.mesaAdmin = [];
     clean_checks();
   };
 

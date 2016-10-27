@@ -36,6 +36,9 @@
   }
 }
 
+
+
+
 md-chips md-chip {
   background: #318000 !important;
   color: #fff !important;
@@ -130,5 +133,38 @@ a {
     md-card-title {
       height: 40px;
     }
+  }
+}
+
+
+.painel-animado {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.painel-animado.ng-leave-active {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipOutY;
+  animation-name: flipOutY;
+}
+
+.painel-animado.ng-enter {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipInY;
+  animation-name: flipInY;
+}
+
+
+.mesaAdmin, .mesaGamers {
+  display: none;
+}
+
+.mesaGamers {
+  .card {
+    display: none;
   }
 }

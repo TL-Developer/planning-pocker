@@ -5,7 +5,7 @@ var express = require('express')
 module.exports = function(){
   var app = express();
 
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 4000);
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({"extended": true}));

@@ -26,7 +26,20 @@
           <h3>MESA:</h3>
         </md-content>
 
-        <md-content class="md-padding mesa" layout-xs="column" layout="row">
+        <md-content class="md-padding mesa mesaAdmin" layout-xs="column" layout="row">
+          <div class="card" ng-repeat="item in mesaAdmin" flex-xs flex-gt-xs="4" layout="column">
+            <md-card class="cardd">
+              <div class="resposta">
+                <p class="nome">{{item.name | uppercase}}</p>
+                <p class="horas">{{item.card}}</p>
+                <p class="texto-horas">Horas</p>
+              </div>
+              <div class="img-card"></div>
+            </md-card>
+          </div>
+        </md-content>
+
+        <md-content class="md-padding mesa mesaGamers" layout-xs="column" layout="row">
           <div class="card" ng-repeat="item in mesa" flex-xs flex-gt-xs="4" layout="column">
             <md-card class="cardd">
               <div class="resposta">
